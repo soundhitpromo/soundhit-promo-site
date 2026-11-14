@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ht">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SOUNDHIT PROMO — Admin</title><link rel="icon" href="logo.webp">
+<style>
+:root{--red:#e21d2e;--bg:#090909;--panel:#171717;--line:#303030;--muted:#aaa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font:15px Arial,sans-serif}
+button,select{font:inherit}a{color:inherit;text-decoration:none}.layout{min-height:100vh;display:grid;grid-template-columns:245px 1fr}
+aside{background:#101010;border-right:1px solid var(--line);padding:22px 16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:bold;letter-spacing:.7px;margin-bottom:30px}.brand img{width:52px;height:52px;object-fit:contain}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1px;margin-top:4px}
+.role{background:#211316;border:1px solid #64202a;border-radius:10px;padding:12px;margin-bottom:20px}.role b{display:block;margin-bottom:6px}.role span{font-size:12px;color:#ff9aa3}
+nav{display:grid;gap:7px}nav button{background:transparent;border:0;color:#ddd;text-align:left;padding:12px;border-radius:8px;cursor:pointer}nav button.active,nav button:hover{background:#351219;color:white}
+main{min-width:0}.top{display:flex;align-items:center;justify-content:space-between;padding:18px 26px;border-bottom:1px solid var(--line);gap:12px}.top small{color:var(--muted)}.top select{background:#171717;color:#fff;border:1px solid #444;border-radius:7px;padding:9px}
+.content{padding:26px;max-width:1250px;margin:auto}.heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.heading h1{font-size:27px;margin:0}.muted{color:var(--muted)}.notice{background:#2c230f;border:1px solid #6b521d;color:#ffe4a6;padding:13px;border-radius:9px;margin:18px 0;font-size:13px;line-height:1.5}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}.card small{color:var(--muted)}.number{font-size:30px;font-weight:bold;margin-top:8px}.red{color:#ff6673}
+.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}.panel h2{font-size:17px;margin:0 0 15px}.row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid #303030;align-items:center}.pill{font-size:11px;padding:5px 9px;border-radius:20px;background:#3b2d12;color:#ffdf9b;white-space:nowrap}.pill.green{background:#15351f;color:#9ce3b0}.pill.redpill{background:#3b171b;color:#ff9aa3}
+.btn{background:var(--red);border:0;color:white;padding:9px 13px;border-radius:7px;cursor:pointer;font-weight:bold}.btn.ghost{background:transparent;border:1px solid #555}.btn:disabled{opacity:.45;cursor:not-allowed}
+.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:560px}th,td{text-align:left;padding:12px;border-bottom:1px solid #333}th{color:#aaa;font-size:12px}td{font-size:13px}
+.section{display:none}.section.show{display:block}.restricted{padding:18px;border:1px dashed #74414a;border-radius:10px;color:#ffb4bb;background:#241316}
+footer{padding:20px 26px;color:#777;font-size:12px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line);padding:14px}.brand{margin-bottom:12px}nav{display:flex;overflow:auto}nav button{white-space:nowrap}.role{margin-bottom:12px}.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.content{padding:18px}.top{padding:14px 18px}}
+@media(max-width:430px){.stats{grid-template-columns:1fr 1fr}.number{font-size:24px}.heading h1{font-size:23px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+ <a class="brand" href="index.html"><img src="logo.webp"><span>SOUNDHIT PROMO<small>ADMINISTRATION</small></span></a>
+ <div class="role"><b id="roleName">Administratè prensipal</b><span id="roleDesc">Tout aksè • Kontwòl total</span></div>
+ <nav id="menu">
+  <button class="active" data-page="overview">📊 Dashboard</button>
+  <button data-page="content">🖼️ Kontni & apwobasyon</button>
+  <button data-page="customers">👥 Kliyan</button>
+  <button data-page="orders">📦 Kòmand</button>
+  <button data-page="payments">💳 Peman</button>
+  <button data-page="campaigns">📣 Piblisite & pake</button>
+  <button data-page="reports">📈 Rapò</button>
+  <button data-page="settings">⚙️ Anviwònman</button>
+  <button data-page="admins">🔐 Administratè</button>
+ <a href="terms.html">Kondisyon / Terms</a><a href="privacy.html">Privacy / Konfidansyalite</a><a href="contact.html">Kontak / Support</a></nav>
+</aside>
+<main>
+ <div class="top"><div><b>Espas administrasyon</b><br><small>Jere aktivite SOUNDHIT PROMO</small></div>
+ <label class="muted">Wè kòm: <select id="roleSelect"><option value="owner">Admin prensipal (ou)</option><option value="content">Admin 2 — Kontni</option><option value="service">Admin 3 — Kliyan & kòmand</option></select></label></div>
+ <div class="content">
+  <div class="heading"><h1 id="pageTitle">Dashboard</h1><span class="pill green">Vèsyon konsepsyon</span></div>
+  <div class="notice"><b>Enpòtan — Demo vizyèl:</b> Chanjman w ap fè sou paj sa a pa konekte ak yon bazdone ni ak kont reyèl. Selektè wòl la sèvi sèlman pou montre diferan pèmisyon yo. Anvan lansman, n ap mete koneksyon sekirize, verifikasyon wòl sou sèvè, bazdone ak sovgad.</div>
+  <section class="section show" id="overview">
+   <p class="muted">Men yon apèsi sou aktivite platfòm nan. Chif sa yo se egzanp pou konsepsyon an.</p>
+   <div class="stats">
+    <div class="card"><small>Kliyan total</small><div class="number">128</div><span class="muted">Kont demo</span></div>
+    <div class="card"><small>Piblikasyon an atant</small><div class="number red">12</div><span class="muted">Bezwen revizyon</span></div>
+    <div class="card"><small>Kòmand aktif</small><div class="number">08</div><span class="muted">Egzanp</span></div>
+    <div class="card"><small>Peman pou verifye</small><div class="number">05</div><span class="muted">Egzanp</span></div>
+   </div>
+   <div class="grid"><div class="panel"><h2>Dènye aktivite</h2>
+    <div class="row"><span>Nouvo videyo atis soumèt</span><span class="pill">An atant</span></div>
+    <div class="row"><span>Nouvo demann pwomosyon biznis</span><span class="pill">Nouvo</span></div>
+    <div class="row"><span>Peman MonCash rapòte</span><span class="pill">Pou verifye</span></div>
+   </div><div class="panel"><h2>Aksè ekip la</h2>
+    <div class="row"><span>Ou — Admin prensipal</span><span class="pill green">Tout aksè</span></div>
+    <div class="row"><span>Admin 2 — Kontni</span><span class="pill">Kontni sèlman</span></div>
+    <div class="row"><span>Admin 3 — Kliyan/kòmand</span><span class="pill">Sèvis sèlman</span></div>
+   </div></div>
+  </section>
+  <section class="section" id="content"><div class="panel"><h2>Piblikasyon pou revize</h2><p class="muted">Admin prensipal ak Admin 2 ka wè seksyon sa a. Tout kontni dwe jwenn apwobasyon anvan piblikasyon.</p><div class="row"><span>🎵 Nouvo mizik — Atis lokal</span><span><span class="pill">An atant</span> <button class="btn" onclick="demoAction('Apwobasyon demo')">Apwouve</button></span></div><div class="row"><span>📸 Foto biznis — Mak lokal</span><span><span class="pill">An atant</span> <button class="btn ghost" onclick="demoAction('Refi demo')">Refize</button></span></div></div></section>
+  <section class="section" id="customers"><div class="panel"><h2>Jesyon kliyan</h2><p class="muted">Admin prensipal ak Admin 3 gen aksè.</p><div class="tablewrap"><table><tr><th>KLIYAN</th><th>IMÈL</th><th>ESTATI</th></tr><tr><td>Egzanp kliyan 01</td><td>client01@example.com</td><td><span class="pill green">Aktif</span></td></tr><tr><td>Egzanp kliyan 02</td><td>client02@example.com</td><td><span class="pill">An atant</span></td></tr></table></div></div></section>
+  <section class="section" id="orders"><div class="panel"><h2>Kòmand ak demann sèvis</h2><p class="muted">Admin prensipal ak Admin 3 gen aksè.</p><div class="row"><span>#SHP-001 — Pake pwomosyon atis</span><span class="pill">An pwosesis</span></div><div class="row"><span>#SHP-002 — Piblisite biznis</span><span class="pill green">Nouvo</span></div></div></section>
+  <section class="section" id="payments"><div class="panel"><h2>Verifikasyon peman</h2><p class="muted">Se admin prensipal la sèlman ki gen aksè finansye nan estrikti aktyèl la.</p><div class="restricted" id="paymentLock">Aksè limite: sèlman administratè prensipal la ka wè peman.</div><div id="paymentData" style="display:none"><div class="row"><span>MonCash — #TX-DEMO-01</span><span class="pill">Pou verifye</span></div><div class="row"><span>NatCash — #TX-DEMO-02</span><span class="pill">Pou verifye</span></div><div class="row"><span>Zelle — #TX-DEMO-03</span><span class="pill">Pou verifye</span></div></div></div></section>
+  <section class="section" id="campaigns"><div class="panel"><h2>Piblisite ak pake pwomosyon</h2><p class="muted">Admin prensipal la jere pri ak pake yo. Lòt wòl yo pa ka modifye tarif yo.</p><div class="row"><span>Pake Debaz</span><span class="pill">Egzanp</span></div><div class="row"><span>Pake Premium</span><span class="pill">Egzanp</span></div><div class="row"><span>Pake Biznis</span><span class="pill">Egzanp</span></div></div></section>
+  <section class="section" id="reports"><div class="panel"><h2>Rapò aktivite</h2><p class="muted">Rapò kliyan, kòmand, revni ak pèfòmans kanpay. Done finansye rezève pou admin prensipal.</p><div class="row"><span>Rezime aktivite</span><span class="pill">Demo</span></div></div></section>
+  <section class="section" id="settings"><div class="panel"><h2>Anviwònman platfòm</h2><p class="muted">Lang: Kreyòl • Français • English</p><p class="muted">Lajan: USD • HTG</p><p class="muted">Aparèy: Telefòn ak òdinatè</p><div class="restricted">Paramèt sekirite ak konfigirasyon prensipal yo rezève pou admin prensipal.</div></div></section>
+  <section class="section" id="admins"><div class="panel"><h2>Administratè ak pèmisyon</h2><p class="muted">Se admin prensipal la sèlman ki ka envite, dezaktive oswa chanje wòl administratè yo.</p><div class="row"><span>Ou — Administratè prensipal</span><span class="pill green">Tout aksè</span></div><div class="row"><span>Administratè 2</span><span class="pill">Kontni</span></div><div class="row"><span>Administratè 3</span><span class="pill">Kliyan & kòmand</span></div></div></section>
+ </div>
+ <footer>© SOUNDHIT PROMO • Zòn administratè — konsepsyon preliminè</footer>
+</main></div>
+<script>
+const access={owner:['overview','content','customers','orders','payments','campaigns','reports','settings','admins'],content:['overview','content'],service:['overview','customers','orders']};
+const titles={overview:'Dashboard',content:'Kontni & apwobasyon',customers:'Kliyan',orders:'Kòmand',payments:'Peman',campaigns:'Piblisite & pake',reports:'Rapò',settings:'Anviwònman',admins:'Administratè'};
+let current='overview';
+function selectPage(page){const role=document.getElementById('roleSelect').value;if(!access[role].includes(page)){alert('Wòl sa a pa gen pèmisyon pou seksyon sa a.');return}current=page;document.querySelectorAll('.section').forEach(s=>s.classList.toggle('show',s.id===page));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));document.getElementById('pageTitle').textContent=titles[page]}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>selectPage(b.dataset.page)));
+document.getElementById('roleSelect').addEventListener('change',e=>{let r=e.target.value;let n={owner:['Administratè prensipal','Tout aksè • Kontwòl total'],content:['Admin 2 — Kontni','Foto, videyo ak apwobasyon'],service:['Admin 3 — Kliyan & kòmand','Kliyan ak swivi kòmand']}[r];document.getElementById('roleName').textContent=n[0];document.getElementById('roleDesc').textContent=n[1];document.getElementById('paymentLock').style.display=r==='owner'?'none':'block';document.getElementById('paymentData').style.display=r==='owner'?'block':'none';if(!access[r].includes(current))selectPage('overview')});
+function demoAction(msg){alert(msg+': fonksyon sa a poko konekte ak bazdone reyèl la.')}
+</script>
+</body></html>

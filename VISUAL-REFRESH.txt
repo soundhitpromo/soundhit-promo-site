@@ -1,0 +1,10 @@
+SOUNDHIT PROMO — AMELYORASYON VIZYÈL V13
+
+- Paj services.html la gen yon hero ak vizyèl medya.
+- Sis sèvis yo gen foto pa kategori.
+- Kat yo gen lonbraj, koulè nwa/ble ak aksan lò.
+- Bouton yo gen plis kontrast.
+- Foto yo optimize an JPG epi chaje an reta (lazy loading).
+- Layout la adapte pou telefòn ak òdinatè.
+- Tout sa se kontni estatik; pa bezwen Supabase.
+- Imaj yo se vizyèl demonstrasyon. Ranplase yo ak foto SOUNDHIT PROMO posede oswa gen dwa itilize anvan lansman piblik.
